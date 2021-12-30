@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HOME</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1><%=created_at %> blogs</h1>
+    <ul>
+      <li>
+        <a href="/new" style="text-decoration: none; color: green">
+          Create New Blog</a
+        >
+      </li>
+      <% if (created_at !== 'All') { %>
+      <li>
+        <a href="/" style="text-decoration: none">All Blogs</a>
+      </li>
+      <% } %>
+    </ul>
+
+    <hr />
+    <% for(let b of blogs) { %>
+    <section>
+      <h3>
+        <a style="text-decoration: none" href="/<%=b._id%>"><%=b.title %></a>
+      </h3>
+      <p><%=b.content %></p>
+      <p>created @ <%=b.created_at %></p>
+      <p>last updated @ <%=b.updated_at %></p>
+      <hr />
+    </section>
+    <% } %>
+  </body>
+</html>
